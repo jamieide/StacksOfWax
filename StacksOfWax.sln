@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Owin", "StacksO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Owin.Tests", "StacksOfWax.Owin.Tests\StacksOfWax.Owin.Tests.csproj", "{09BCF355-CA23-4488-ADC7-8D1AE082D98D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Versioned", "4 Versioned", "{43BA97AB-8BB9-47AA-96AC-F388A5312645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Versioned", "StacksOfWax.Versioned\StacksOfWax.Versioned.csproj", "{694444AE-AA4F-47F1-A1C7-A5F542208910}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,10 @@ Global
 		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +84,6 @@ Global
 		{BA46D524-0680-41CB-A463-E97F12148FAE} = {9FFD0ED0-A94E-4A8B-912B-B377B7F02CC6}
 		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25} = {CD731F3E-0B18-46B4-B564-528649C7AA1D}
 		{09BCF355-CA23-4488-ADC7-8D1AE082D98D} = {CD731F3E-0B18-46B4-B564-528649C7AA1D}
+		{694444AE-AA4F-47F1-A1C7-A5F542208910} = {43BA97AB-8BB9-47AA-96AC-F388A5312645}
 	EndGlobalSection
 EndGlobal
