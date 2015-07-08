@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Shared", "1 Shared", "{AEA64723-8C51-4152-B5E4-A14675647550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Shared.Models", "StacksOfWax.Shared.Models\StacksOfWax.Shared.Models.csproj", "{AC192BB9-2E9E-421E-9D50-3B31CBC7F93E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Shared.DataAccess", "StacksOfWax.Shared.DataAccess\StacksOfWax.Shared.DataAccess.csproj", "{9E35BE2D-9171-435D-880A-9C00DD4CEFDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Shared.DataAccess.Tests", "StacksOfWax.Shared.DataAccess.Tests\StacksOfWax.Shared.DataAccess.Tests.csproj", "{0E08F94B-1D34-454E-9E0B-716D43C3C4D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Web API Template", "2 Web API Template", "{9FFD0ED0-A94E-4A8B-912B-B377B7F02CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.WebApiTemplate", "StacksOfWax.WebApiTemplate\StacksOfWax.WebApiTemplate.csproj", "{1BFC06F3-DAF6-4795-AF67-0141E4D9A487}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{546B3F11-1941-46E1-B373-1716E7DFE36D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.WebApiTemplate.Tests", "StacksOfWax.WebApiTemplate.Tests\StacksOfWax.WebApiTemplate.Tests.csproj", "{BA46D524-0680-41CB-A463-E97F12148FAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 OWIN", "3 OWIN", "{CD731F3E-0B18-46B4-B564-528649C7AA1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Owin", "StacksOfWax.Owin\StacksOfWax.Owin.csproj", "{77CA4EDC-F663-4CEC-AD09-19955AFB0D25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Owin.Tests", "StacksOfWax.Owin.Tests\StacksOfWax.Owin.Tests.csproj", "{09BCF355-CA23-4488-ADC7-8D1AE082D98D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC192BB9-2E9E-421E-9D50-3B31CBC7F93E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC192BB9-2E9E-421E-9D50-3B31CBC7F93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC192BB9-2E9E-421E-9D50-3B31CBC7F93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC192BB9-2E9E-421E-9D50-3B31CBC7F93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E35BE2D-9171-435D-880A-9C00DD4CEFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E35BE2D-9171-435D-880A-9C00DD4CEFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E35BE2D-9171-435D-880A-9C00DD4CEFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E35BE2D-9171-435D-880A-9C00DD4CEFDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E08F94B-1D34-454E-9E0B-716D43C3C4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E08F94B-1D34-454E-9E0B-716D43C3C4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E08F94B-1D34-454E-9E0B-716D43C3C4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E08F94B-1D34-454E-9E0B-716D43C3C4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BFC06F3-DAF6-4795-AF67-0141E4D9A487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BFC06F3-DAF6-4795-AF67-0141E4D9A487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BFC06F3-DAF6-4795-AF67-0141E4D9A487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BFC06F3-DAF6-4795-AF67-0141E4D9A487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA46D524-0680-41CB-A463-E97F12148FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA46D524-0680-41CB-A463-E97F12148FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA46D524-0680-41CB-A463-E97F12148FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA46D524-0680-41CB-A463-E97F12148FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09BCF355-CA23-4488-ADC7-8D1AE082D98D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC192BB9-2E9E-421E-9D50-3B31CBC7F93E} = {AEA64723-8C51-4152-B5E4-A14675647550}
+		{9E35BE2D-9171-435D-880A-9C00DD4CEFDE} = {AEA64723-8C51-4152-B5E4-A14675647550}
+		{0E08F94B-1D34-454E-9E0B-716D43C3C4D1} = {AEA64723-8C51-4152-B5E4-A14675647550}
+		{1BFC06F3-DAF6-4795-AF67-0141E4D9A487} = {9FFD0ED0-A94E-4A8B-912B-B377B7F02CC6}
+		{BA46D524-0680-41CB-A463-E97F12148FAE} = {9FFD0ED0-A94E-4A8B-912B-B377B7F02CC6}
+		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25} = {CD731F3E-0B18-46B4-B564-528649C7AA1D}
+		{09BCF355-CA23-4488-ADC7-8D1AE082D98D} = {CD731F3E-0B18-46B4-B564-528649C7AA1D}
+	EndGlobalSection
+EndGlobal
