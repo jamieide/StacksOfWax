@@ -33,14 +33,10 @@ namespace StacksOfWax.BasicAuth.Security
                 }
             }, response);
 
-            var header = request.Headers["Authorization"];
-
-            if (!string.IsNullOrWhiteSpace(header))
+            AuthenticationHeaderValue authHeader;
+            if (AuthenticationHeaderValue.TryParse(request.Headers["Authorization"], out authHeader))
             {
-                // TODO TryParse
-                var authHeader = AuthenticationHeaderValue.Parse(header);
-
-                if (string.Equals("Basic", authHeader.Scheme))
+                if (authHeader.Scheme == "Basic")
                 {
                     var parameters = Encoding.UTF8.GetString(Convert.FromBase64String(authHeader.Parameter)).Split(':');
 

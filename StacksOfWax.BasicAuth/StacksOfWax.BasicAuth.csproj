@@ -119,7 +119,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\AppSettingsApiKeyValidator.cs" />
+    <Compile Include="Security\ConfigApiKeyValidator.cs" />
     <Compile Include="Security\DemoApiKeyValidator.cs" />
     <Compile Include="Security\IApiKeyValidator.cs" />
     <Compile Include="Security\OwinBasicAuthMiddleware.cs" />
