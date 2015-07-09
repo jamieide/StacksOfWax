@@ -34,6 +34,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Versioned", "4 Versioned"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.Versioned", "StacksOfWax.Versioned\StacksOfWax.Versioned.csproj", "{694444AE-AA4F-47F1-A1C7-A5F542208910}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Basic Auth", "5 Basic Auth", "{036AA3BD-385B-4F54-BD46-C409C0615CD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.BasicAuth", "StacksOfWax.BasicAuth\StacksOfWax.BasicAuth.csproj", "{6E767212-6B94-4073-AC18-3DA028856F0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +76,10 @@ Global
 		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{694444AE-AA4F-47F1-A1C7-A5F542208910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E767212-6B94-4073-AC18-3DA028856F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E767212-6B94-4073-AC18-3DA028856F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E767212-6B94-4073-AC18-3DA028856F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E767212-6B94-4073-AC18-3DA028856F0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,5 +93,6 @@ Global
 		{77CA4EDC-F663-4CEC-AD09-19955AFB0D25} = {CD731F3E-0B18-46B4-B564-528649C7AA1D}
 		{09BCF355-CA23-4488-ADC7-8D1AE082D98D} = {CD731F3E-0B18-46B4-B564-528649C7AA1D}
 		{694444AE-AA4F-47F1-A1C7-A5F542208910} = {43BA97AB-8BB9-47AA-96AC-F388A5312645}
+		{6E767212-6B94-4073-AC18-3DA028856F0E} = {036AA3BD-385B-4F54-BD46-C409C0615CD2}
 	EndGlobalSection
 EndGlobal

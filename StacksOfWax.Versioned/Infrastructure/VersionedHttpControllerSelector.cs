@@ -48,13 +48,23 @@ namespace StacksOfWax.Versioned.Infrastructure
         // TODO handle subroute, do same for version
         private string GetControllerName(IHttpRouteData routeData)
         {
-            // Special handling for attribute routes
-            const string attributeRouteKey = "MS_DirectRouteMatches";
-            if (routeData.Values.ContainsKey(attributeRouteKey))
+            var attributedRoutesData = routeData.GetSubRoutes();
+            if (attributedRoutesData == null)
             {
-                routeData = ((IEnumerable<IHttpRouteData>)routeData.Values["MS_DirectRouteMatches"]).First();
+                return routeData.Values["controller"].ToString();
             }
-            return routeData.Values["controller"].ToString();
+
+            var subRouteData = attributedRoutesData.FirstOrDefault();
+            if (subRouteData != null && subRouteData.Route != null)
+            {
+                var actions = subRouteData.Route.DataTokens["actions"] as HttpActionDescriptor[];
+                if (actions != null && actions.Any())
+                {
+                    return actions[0].ControllerDescriptor.ControllerName;
+                }
+            }
+
+            return null;
         }
 
         private static string GetVersionFromRoute(IHttpRouteData routeData)
@@ -81,7 +91,7 @@ namespace StacksOfWax.Versioned.Infrastructure
             }
             return versionPair.Value;
         }
-        
+
         private static string GetVersionFromHeader(HttpRequestMessage request)
         {
             IEnumerable<string> versionHeaders;
