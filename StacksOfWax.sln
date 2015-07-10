@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 HMAC Auth", "6 HMAC Auth"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.HmacAuth", "StacksOfWax.HmacAuth\StacksOfWax.HmacAuth.csproj", "{3D814613-A062-4E44-911E-7D083D4DD934}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.HmacAuth.Tests", "StacksOfWax.HmacAuth.Tests\StacksOfWax.HmacAuth.Tests.csproj", "{BBCDF46A-7B69-43AD-9E40-06C8896ED40E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{3D814613-A062-4E44-911E-7D083D4DD934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D814613-A062-4E44-911E-7D083D4DD934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D814613-A062-4E44-911E-7D083D4DD934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBCDF46A-7B69-43AD-9E40-06C8896ED40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBCDF46A-7B69-43AD-9E40-06C8896ED40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBCDF46A-7B69-43AD-9E40-06C8896ED40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBCDF46A-7B69-43AD-9E40-06C8896ED40E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +122,6 @@ Global
 		{6E767212-6B94-4073-AC18-3DA028856F0E} = {036AA3BD-385B-4F54-BD46-C409C0615CD2}
 		{E4AE7597-3541-49C1-99CE-BFD6B1A366BC} = {43BA97AB-8BB9-47AA-96AC-F388A5312645}
 		{3D814613-A062-4E44-911E-7D083D4DD934} = {133BFCA4-9BD6-42CE-B663-921251B7BB96}
+		{BBCDF46A-7B69-43AD-9E40-06C8896ED40E} = {133BFCA4-9BD6-42CE-B663-921251B7BB96}
 	EndGlobalSection
 EndGlobal

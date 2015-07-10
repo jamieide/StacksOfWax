@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Owin;
 using Owin;
+using StacksOfWax.HmacAuth.Security;
 
 [assembly: OwinStartup(typeof(StacksOfWax.HmacAuth.Startup))]
 
@@ -14,7 +15,9 @@ namespace StacksOfWax.HmacAuth
         {
             var config = new HttpConfiguration();
             WebApiConfig.Register(config);
-            app.UseWebApi(config);
+            app
+                .Use<HmacAuthOwinMiddleware>()
+                .UseWebApi(config);
         }
     }
 }

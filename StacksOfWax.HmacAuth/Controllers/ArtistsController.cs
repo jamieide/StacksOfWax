@@ -13,12 +13,14 @@ namespace StacksOfWax.HmacAuth.Controllers
             _db = new StacksOfWaxDbContext();
         }
 
+        [AllowAnonymous]
         public IHttpActionResult GetArtists()
         {
             var artists = _db.Artists;
             return Ok(artists);
         }
 
+        [Authorize]
         public IHttpActionResult GetArtist(int id)
         {
             var artist = _db.Artists.SingleOrDefault(x => x.ArtistId == id);

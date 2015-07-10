@@ -122,7 +122,7 @@
     <Compile Include="Security\ConfigApiKeyValidator.cs" />
     <Compile Include="Security\DemoApiKeyValidator.cs" />
     <Compile Include="Security\IApiKeyValidator.cs" />
-    <Compile Include="Security\OwinBasicAuthMiddleware.cs" />
+    <Compile Include="Security\BasicAuthOwinMiddleware.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -8,11 +8,11 @@ using Microsoft.Owin;
 
 namespace StacksOfWax.BasicAuth.Security
 {
-    public class OwinBasicAuthMiddleware : OwinMiddleware
+    public class BasicAuthOwinMiddleware : OwinMiddleware
     {
         private readonly IApiKeyValidator _apiKeyValidator;
 
-        public OwinBasicAuthMiddleware(OwinMiddleware next, IApiKeyValidator apiKeyValidator)
+        public BasicAuthOwinMiddleware(OwinMiddleware next, IApiKeyValidator apiKeyValidator)
             : base(next)
         {
             _apiKeyValidator = apiKeyValidator;
