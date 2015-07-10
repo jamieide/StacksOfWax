@@ -46,5 +46,15 @@ namespace StacksOfWax.Versioned.Controllers
             return Ok(vm);
         }
 
+        [Route("api/v2/artists/{id}/albums")]
+        public IHttpActionResult GetArtistAlbums(int id)
+        {
+            var albums = _db.Albums
+                .Where(x => x.ArtistId == id)
+                .ToList();
+
+            return Ok(albums);
+        }
+
     }
 }

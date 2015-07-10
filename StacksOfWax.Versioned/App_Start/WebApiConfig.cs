@@ -13,17 +13,18 @@ namespace StacksOfWax.Versioned
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+
+            config.Routes.MapHttpRoute(
+                name: "VersionedApi",
+                routeTemplate: "api/v{version}/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+                );
+
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",
             //    routeTemplate: "api/{controller}/{id}",
             //    defaults: new { id = RouteParameter.Optional }
             //);
-
-            config.Routes.MapHttpRoute(
-                name: "VersionedApi",
-                routeTemplate: "api/v{version}/{controller}/{id}",
-                defaults: new {id = RouteParameter.Optional}
-                );
 
             config.Services.Replace(typeof(IHttpControllerSelector), new VersionedHttpControllerSelector(config));
         }
