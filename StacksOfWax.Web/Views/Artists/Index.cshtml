@@ -1,0 +1,17 @@
+﻿@model IEnumerable<StacksOfWax.Web.ViewModels.ArtistViewModel>
+
+@{
+    ViewBag.Title = "Artists";
+}
+
+<h1 class="page-header">Artists</h1>
+
+<ul class="list-group">
+    @foreach (var artist in Model)
+    {
+        <li class="list-group-item">
+            <a href="@Url.Action("Details", new { id = @artist.ArtistId})">@artist.Name</a>
+        </li>
+    }
+</ul>
+

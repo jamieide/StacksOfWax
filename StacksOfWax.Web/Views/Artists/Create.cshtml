@@ -1,0 +1,20 @@
+﻿@using System.Web.UI.HtmlControls
+@model StacksOfWax.Web.ViewModels.ArtistViewModel
+
+@{
+    ViewBag.Title = "Create Artist";
+}
+
+<h1 class="page-header">Create Artist</h1>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+

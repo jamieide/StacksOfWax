@@ -1,0 +1,16 @@
+﻿@model StacksOfWax.Web.ViewModels.ArtistDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 class="page-header">@Model.Artist.Name</h1>
+
+<h2>Albums</h2>
+<ul class="list-group">
+    @foreach (var album in Model.Albums)
+    {
+        <li class="list-group-item">@album.Name</li>
+    }
+</ul>
+
