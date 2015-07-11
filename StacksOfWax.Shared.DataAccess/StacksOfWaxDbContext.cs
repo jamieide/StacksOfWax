@@ -6,7 +6,7 @@ namespace StacksOfWax.Shared.DataAccess
 {
     public class StacksOfWaxDbContext : DbContext
     {
-        public StacksOfWaxDbContext()
+        public StacksOfWaxDbContext() : base("StacksOfWaxDb")
         {
             Database.SetInitializer(new StacksOfWaxDbInitializer());
         }
@@ -17,7 +17,7 @@ namespace StacksOfWax.Shared.DataAccess
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Properties<string>().Configure(c => c.IsUnicode(false).HasMaxLength(200));
+            modelBuilder.Properties<string>().Configure(c => c.IsUnicode(false).HasMaxLength(100));
         }
     }
 }
