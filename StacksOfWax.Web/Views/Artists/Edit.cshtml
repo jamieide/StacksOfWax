@@ -1,0 +1,21 @@
+﻿@model StacksOfWax.Web.ViewModels.ArtistViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1 class="page-header">Edit</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.ArtistId);
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+
+

@@ -22,20 +22,24 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index", "Artists")">Artists</a></li>
+                    <li><a href="@Url.Action("Search", "Artists")">Search</a></li>
                 </ul>
             </div>
         </div>
     </div>
-
+    
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <div id="footer">
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Stacks of Wax</p>
+            </footer>
+        </div>
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 </html>

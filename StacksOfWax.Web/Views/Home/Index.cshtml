@@ -1,7 +1,32 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Stacks of Wax";
 }
 
-<h1>Home</h1>
+<style type="text/css">
+    body {
+        background-image: url(@Url.Content("~/Content/vertical-vinyl-records.jpg"));
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+    #footer {
+        display: none;
+    }
+    .jumbotron {
+        margin-top: 100px;
+        background-color: black;
+        color: orange;
+        font-size: 2.5em;
+    }
+</style>
 
+<div class="jumbotron clearfix">
+    <p>
+        Develop your talent, man, and leave the world something. Records are really gifts from people.
+        To think that an artist would love you enough to share his music with anyone is a beautiful thing.
+    </p>
+    <p class="pull-right">
+        &mdash; Duane Allman
+    </p>
+</div>

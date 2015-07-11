@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Search Artists";
+}
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+            $('#search-button').click(function () {
+                $('#search-results').empty();
+                $.getJSON('dosearch',
+                    {
+                        "phrase": $('#search-phrase').val()
+                    })
+                    .done(function (data) {
+                        $.each(data, function(i, item) {
+                            $('<li class="list-group-item"><a href="details/' + item.ArtistId + '">' + item.Name + '</a></li>')
+                                .appendTo('#search-results');
+                        });
+                    })
+                    .fail(function(err) {
+                        alert('d\'oh!');
+                    });
+            });
+        });
+    </script>
+}
+
+<h1 class="page-header">Search Artists</h1>
+
+<form>
+    <div class="form-group">
+        <label>Search phrase</label>
+        <input type="text" id="search-phrase" class="form-control"/>
+    </div>
+    
+    <button type="button" id="search-button" class="btn btn-primary">Search</button>
+</form>
+
+<h2>Results</h2>
+
+<ul id="search-results" class="list-group"></ul>

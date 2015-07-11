@@ -6,11 +6,18 @@
 
 <h1 class="page-header">Artists</h1>
 
+<p><a href="@Url.Action("Create")" class="btn btn-primary">Add new</a></p>
+
+
 <ul class="list-group">
     @foreach (var artist in Model)
     {
-        <li class="list-group-item">
+        <li class="list-group-item clearfix">
             <a href="@Url.Action("Details", new { id = @artist.ArtistId})">@artist.Name</a>
+            <div class="pull-right">
+                <a href="@Url.Action("Edit", new { id = @artist.ArtistId})" class="btn btn-warning">Edit</a>
+                <a href="@Url.Action("Delete", new { id = @artist.ArtistId})" class="btn btn-danger">Delete</a>
+            </div>
         </li>
     }
 </ul>
