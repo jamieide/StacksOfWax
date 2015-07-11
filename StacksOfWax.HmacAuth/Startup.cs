@@ -16,7 +16,7 @@ namespace StacksOfWax.HmacAuth
             var config = new HttpConfiguration();
             WebApiConfig.Register(config);
             app
-                .Use<HmacAuthOwinMiddleware>()
+                .Use<HmacAuthOwinMiddleware>(new ConfigAppKeyProvider())
                 .UseWebApi(config);
         }
     }

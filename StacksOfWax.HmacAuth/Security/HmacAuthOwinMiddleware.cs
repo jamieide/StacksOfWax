@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
@@ -12,8 +13,11 @@ namespace StacksOfWax.HmacAuth.Security
 {
     public class HmacAuthOwinMiddleware : OwinMiddleware
     {
-        public HmacAuthOwinMiddleware(OwinMiddleware next) : base(next)
+        private readonly IAppKeyProvider _appKeyProvider;
+
+        public HmacAuthOwinMiddleware(OwinMiddleware next, IAppKeyProvider appKeyProvider) : base(next)
         {
+            _appKeyProvider = appKeyProvider;
         }
 
         public override async Task Invoke(IOwinContext context)
@@ -39,12 +43,12 @@ namespace StacksOfWax.HmacAuth.Security
             AuthenticationHeaderValue authHeader;
             if (AuthenticationHeaderValue.TryParse(request.Headers["Authorization"], out authHeader) && authHeader.Scheme == "SOW")
             {
-                if (IsValidRequest(request))
+                string requestAppId;
+                if (TryIsValidRequest(request, out requestAppId))
                 {
                     var claims = new[]
                     {
-                        // TODO
-                        new Claim(ClaimTypes.Name, "APPID GOES HERE")
+                        new Claim(ClaimTypes.Name, requestAppId)
                     };
                     var identity = new ClaimsIdentity(claims, "HMAC");
                     request.User = new ClaimsPrincipal(identity);
@@ -54,11 +58,9 @@ namespace StacksOfWax.HmacAuth.Security
             await Next.Invoke(context);
         }
 
-        private bool IsValidRequest(IOwinRequest request)
+        private bool TryIsValidRequest(IOwinRequest request, out string requestAppId)
         {
-            // TODO move to config
-            const string appId = "2fad4c19-0fcc-429e-8f41-e21b73db75cd";
-            const string apiKey = "SjSa9vT4QWNXERDcAde4rjtc4tq4ZNojjaq7JoZ+81w=";
+            requestAppId = null;
 
             AuthenticationHeaderValue authHeader;
             if (!AuthenticationHeaderValue.TryParse(request.Headers["Authorization"], out authHeader) || authHeader.Scheme != "SOW")
@@ -71,11 +73,12 @@ namespace StacksOfWax.HmacAuth.Security
             {
                 return false;
             }
-            var requestAppId = parameters[0];
-            var requerstSignature = parameters[1];
+            requestAppId = parameters[0];
+            var requestSignature = parameters[1];
             var requestTimeStamp = parameters[2];
 
-            if (appId != requestAppId)
+            var apiKey = _appKeyProvider.GetKey(requestAppId);
+            if (apiKey == null)
             {
                 return false;
             }
@@ -83,15 +86,41 @@ namespace StacksOfWax.HmacAuth.Security
             // TODO check replay request
 
             // Compute hash
-            var hash = ComputeHash(request.Body);
+            var requestContent = string.Empty;
+            var hash = ComputeHash(request);
+            if (hash != null)
+            {
+                requestContent = Convert.ToBase64String(hash);
+            }
 
-            return true;
+            var requestMethod = request.Method;
+            var requestUri = WebUtility.UrlEncode(request.Uri.ToString().ToLowerInvariant());
+            var hmacData = string.Concat(requestAppId, requestMethod, requestUri, requestTimeStamp, requestContent);
 
+            var secretKeyBytes = Convert.FromBase64String(apiKey);
+            var signature = Encoding.UTF8.GetBytes(hmacData);
+
+            using (var hmac = new HMACSHA256(secretKeyBytes))
+            {
+                var signatureBytes = hmac.ComputeHash(signature);
+                var signatureString = Convert.ToBase64String(signatureBytes);
+                return requestSignature.Equals(signatureString, StringComparison.Ordinal);
+            }
         }
 
-        private byte[] ComputeHash()
+        private byte[] ComputeHash(IOwinRequest request)
         {
-            
+            using (var ms = new MemoryStream())
+            using (var md5 = MD5.Create())
+            {
+                request.Body.CopyTo(ms);
+                var body = ms.ToArray();
+                if (body.Length > 0)
+                {
+                    return md5.ComputeHash(body);
+                }
+            }
+            return null;
         }
     }
 }

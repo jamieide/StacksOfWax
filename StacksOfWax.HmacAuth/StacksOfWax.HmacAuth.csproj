@@ -118,7 +118,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\ConfigAppKeyProvider.cs" />
     <Compile Include="Security\HmacAuthOwinMiddleware.cs" />
+    <Compile Include="Security\IAppKeyProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

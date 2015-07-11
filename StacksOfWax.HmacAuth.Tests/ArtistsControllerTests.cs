@@ -34,7 +34,7 @@ namespace StacksOfWax.HmacAuth.Tests
         [TestMethod]
         public void CanGetArtists()
         {
-            var request = _server.CreateRequest("api/artists");
+            var request = _server.CreateRequest("http://localhost/api/artists");
             IEnumerable<Artist> artists;
             using (var response = request.GetAsync().Result)
             {
@@ -48,7 +48,7 @@ namespace StacksOfWax.HmacAuth.Tests
         [TestMethod]
         public void CannotGetArtistWithoutHmac()
         {
-            var request = _server.CreateRequest("api/artists/1");
+            var request = _server.CreateRequest("http://localhost/api/artists/1");
             using (var response = request.GetAsync().Result)
             {
                 Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
@@ -58,7 +58,7 @@ namespace StacksOfWax.HmacAuth.Tests
         [TestMethod]
         public void CanGetArtistWithHmac()
         {
-            var request = _server.CreateRequest("api/artists/1")
+            var request = _server.CreateRequest("http://localhost/api/artists/1")
                 .And(GenerateAndAddAuthorizationHeader);
             using (var response = request.GetAsync().Result)
             {
@@ -76,25 +76,27 @@ namespace StacksOfWax.HmacAuth.Tests
             const string apiKey = "SjSa9vT4QWNXERDcAde4rjtc4tq4ZNojjaq7JoZ+81w=";
 
             // TODO Should use absolute URI but can't with relative 
-            var requestUri = WebUtility.UrlEncode(request.RequestUri.ToString());
+            var requestUri = WebUtility.UrlEncode(request.RequestUri.ToString().ToLowerInvariant());
             var requestMethod = request.Method.Method;
 
             // Calculate UNIX time
             var epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             var timeSpan = DateTime.UtcNow - epochStart;
-            var timeStamp = Convert.ToUInt64(timeSpan.TotalSeconds).ToString();
+            var requestTimeStamp = Convert.ToUInt64(timeSpan.TotalSeconds).ToString();
 
-            var requestContent = string.Empty;
+            var requestBody = string.Empty;
             if (request.Content != null)
             {
-                var content = request.Content.ReadAsByteArrayAsync().Result;
-                var md5 = MD5.Create();
-                // Hash request body
-                var contentHash = md5.ComputeHash(content);
-                requestContent = Convert.ToBase64String(contentHash);
+                var body = request.Content.ReadAsByteArrayAsync().Result;
+                byte[] contentHash;
+                using (var md5 = MD5.Create())
+                {
+                    contentHash = md5.ComputeHash(body);
+                }
+                requestBody = Convert.ToBase64String(contentHash);
             }
 
-            var hmacData = string.Concat(appId, requestMethod, requestUri, timeStamp, requestContent);
+            var hmacData = string.Concat(appId, requestMethod, requestUri, requestTimeStamp, requestBody);
             var secretKeyByteArray = Convert.FromBase64String(apiKey);
             var signature = Encoding.UTF8.GetBytes(hmacData);
 
@@ -102,7 +104,7 @@ namespace StacksOfWax.HmacAuth.Tests
             {
                 var signatureBytes = hmac.ComputeHash(signature);
                 var requestSignature = Convert.ToBase64String(signatureBytes);
-                var headerValue = string.Format("{0}:{1}:{2}", appId, requestSignature, timeStamp);
+                var headerValue = string.Format("{0}:{1}:{2}", appId, requestSignature, requestTimeStamp);
                 request.Headers.Authorization = new AuthenticationHeaderValue("SOW", headerValue);
             }
         }
