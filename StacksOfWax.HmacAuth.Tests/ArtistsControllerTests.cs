@@ -32,7 +32,7 @@ namespace StacksOfWax.HmacAuth.Tests
 
 
         [TestMethod]
-        public void CanGetArtists()
+        public void CanGetArtistsWithoutCredentials()
         {
             var request = _server.CreateRequest("http://localhost/api/artists");
             IEnumerable<Artist> artists;
@@ -46,7 +46,7 @@ namespace StacksOfWax.HmacAuth.Tests
         }
 
         [TestMethod]
-        public void CannotGetArtistWithoutHmac()
+        public void CannotGetArtistWithoutCredentials()
         {
             var request = _server.CreateRequest("http://localhost/api/artists/1");
             using (var response = request.GetAsync().Result)
@@ -56,7 +56,7 @@ namespace StacksOfWax.HmacAuth.Tests
         }
 
         [TestMethod]
-        public void CanGetArtistWithHmac()
+        public void CanGetArtistWithCredentials()
         {
             var request = _server.CreateRequest("http://localhost/api/artists/1")
                 .And(GenerateAndAddAuthorizationHeader);
