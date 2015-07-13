@@ -21,7 +21,7 @@ namespace StacksOfWax.Owin.Tests
         [ClassInitialize]
         public static void SetUp(TestContext context)
         {
-            _webApp = WebApp.Start<Startup>("http://localhost:54907/");
+            _webApp = WebApp.Start<Startup>("http://localhost:55555/");
         }
 
         [ClassCleanup]
@@ -36,7 +36,7 @@ namespace StacksOfWax.Owin.Tests
             using (var client = new HttpClient())
             {
                 // Arrange
-                var requestUri = new Uri("http://localhost:54907/api/artists");
+                var requestUri = new Uri("http://localhost:55555/api/artists");
 
                 // Act
                 var result = client.GetAsync(requestUri).Result;
@@ -55,7 +55,7 @@ namespace StacksOfWax.Owin.Tests
             using (var client = new HttpClient())
             {
                 // Arrange
-                var requestUri = new Uri("http://localhost:54907/api/artists");
+                var requestUri = new Uri("http://localhost:55555/api/artists");
 
                 // Act
                 var result = await client.GetAsync(requestUri);
@@ -74,7 +74,7 @@ namespace StacksOfWax.Owin.Tests
             using (var client = new HttpClient())
             {
                 // Arrange
-                var requestUri = new Uri("http://localhost:54907/api/artists/1");
+                var requestUri = new Uri("http://localhost:55555/api/artists/1");
 
                 // Act
                 var result = client.GetAsync(requestUri).Result;
