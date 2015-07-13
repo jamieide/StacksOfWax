@@ -13,6 +13,7 @@ namespace StacksOfWax.BasicAuth.Controllers
             _db = new StacksOfWaxDbContext();
         }
 
+        [AllowAnonymous]
         public IHttpActionResult GetArtists()
         {
             return Ok(_db.Artists);

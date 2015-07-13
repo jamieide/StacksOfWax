@@ -27,7 +27,7 @@ namespace StacksOfWax.BasicAuth.Security
             {
                 var owinResponse = (OwinResponse)state;
 
-                if (owinResponse.StatusCode == (int)HttpStatusCode.Unauthorized)
+                if (owinResponse.StatusCode == (int)HttpStatusCode.Unauthorized && !owinResponse.Headers.ContainsKey("WWW-Authenticate"))
                 {
                     owinResponse.Headers.Add("WWW-Authenticate", new[] { "Basic" });
                 }
