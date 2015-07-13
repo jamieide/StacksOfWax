@@ -22,12 +22,11 @@ namespace StacksOfWax.WebApiTemplate.Tests
 
                 // Act
                 // TODO how to make this pass?
-                var result = controller.GetArtists() as OkNegotiatedContentResult<IDbSet<Artist>>;
+                var result = controller.GetArtists() as IEnumerable<Artist>;
 
                 // Assert
                 Assert.IsNotNull(result);
-                Assert.IsNotNull(result.Content);
-                Assert.IsTrue(result.Content.Any());
+                Assert.IsTrue(result.Any());
             }
         }
 

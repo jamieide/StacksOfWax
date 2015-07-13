@@ -1,11 +1,18 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using StacksOfWax.Shared.Models;
 
 namespace StacksOfWax.Shared.DataAccess
 {
-    public class StacksOfWaxDbInitializer : DropCreateDatabaseIfModelChanges<StacksOfWaxDbContext>
+    public class StacksOfWaxDbInitializer : DropCreateDatabaseAlways<StacksOfWaxDbContext>
     {
         protected override void Seed(StacksOfWaxDbContext context)
+        {
+            SeedData(context);
+        }
+
+        private static void SeedData(StacksOfWaxDbContext context)
         {
             var abb = context.Artists.Add(new Artist("The Allman Brothers Band"));
             context.Albums.Add(new Album(abb, "The Allman Brothers Band"));
