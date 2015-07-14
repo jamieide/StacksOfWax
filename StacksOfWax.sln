@@ -40,6 +40,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksOfWax.BasicAuth", "St
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFE31807-39EC-488B-8C3D-99A58874BB24}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Presentations\Building APIs With ASP.NET Web API 2.pptx = ..\..\..\OneDrive\Presentations\Building APIs With ASP.NET Web API 2.pptx
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection

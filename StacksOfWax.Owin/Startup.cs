@@ -16,7 +16,7 @@ namespace StacksOfWax.Owin
             //    context.Response.ContentType = "text/plain";
             //    return context.Response.WriteAsync("Hello world!");
             //});
-            
+
             //app.UseWelcomePage();
 
             var config = new HttpConfiguration();

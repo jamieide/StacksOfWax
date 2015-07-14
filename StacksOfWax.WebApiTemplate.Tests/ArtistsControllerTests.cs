@@ -21,7 +21,6 @@ namespace StacksOfWax.WebApiTemplate.Tests
                 var controller = new ArtistsController(db);
 
                 // Act
-                // TODO how to make this pass?
                 var result = controller.GetArtists() as IEnumerable<Artist>;
 
                 // Assert

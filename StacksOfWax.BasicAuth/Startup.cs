@@ -16,7 +16,7 @@ namespace StacksOfWax.BasicAuth
             WebApiConfig.Register(config);
 
             app
-                .Use<BasicAuthOwinMiddleware>(new DemoApiKeyValidator())
+                .Use<BasicAuthOwinMiddleware>(new ConfigApiKeyValidator())
                 .UseWebApi(config);
         }
     }
